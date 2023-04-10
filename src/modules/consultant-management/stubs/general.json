@@ -1,0 +1,261 @@
+{
+  "message": "Data successfully retrieved.",
+  "data": {
+      "CONSULTANT_QUALIFICATIONS": [
+          {
+              "CONSULTANT_QUALIFICATION_ID": 1,
+              "QUAL_NAME": "SPM"
+          },
+          {
+              "CONSULTANT_QUALIFICATION_ID": 2,
+              "QUAL_NAME": "SPMV"
+          },
+          {
+              "CONSULTANT_QUALIFICATION_ID": 3,
+              "QUAL_NAME": "STPM"
+          }
+      ],
+      "STAFF_POSITIONS": [
+          {
+              "ID": 1,
+              "NAME": "CEO"
+          },
+          {
+              "ID": 2,
+              "NAME": "DIRECTOR"
+          },
+          {
+              "ID": 3,
+              "NAME": "OTHERS"
+          }
+      ],
+      "PROFESSIONAL_CERTIFICATES": [
+          {
+              "ID": 1,
+              "NAME": "Certified Financial Planner (CFP)"
+          },
+          {
+              "ID": 2,
+              "NAME": "Islamic Financial Planner (IFP)"
+          },
+          {
+              "ID": 3,
+              "NAME": "Registered Financial Planner (RFP)"
+          },
+          {
+              "ID": 4,
+              "NAME": "Shariah Registered Financial Planner (SRFP)"
+          }
+      ],
+      "FINANCIAL_PLANNER_ORGANIZATIONS": [
+          {
+              "ID": 1,
+              "NAME": "FPAM -CFP/IFP/Both"
+          },
+          {
+              "ID": 2,
+              "NAME": "MFPC"
+          },
+          {
+              "ID": 3,
+              "NAME": "MFPAA"
+          }
+      ],
+      "EXEMPTION_CATEGORIES": [
+          {
+              "EXEMPTION_CATEGORY_ID": 3,
+              "NAME": "CEO"
+          },
+          {
+              "EXEMPTION_CATEGORY_ID": 4,
+              "NAME": "Directors"
+          },
+          {
+              "EXEMPTION_CATEGORY_ID": 2,
+              "NAME": "Financial Planner"
+          },
+          {
+              "EXEMPTION_CATEGORY_ID": 1,
+              "NAME": "Fund Manager"
+          },
+          {
+              "EXEMPTION_CATEGORY_ID": 5,
+              "NAME": "PRS Familiarization Program (PRSFP) – Insurance Agent"
+          },
+          {
+              "EXEMPTION_CATEGORY_ID": 6,
+              "NAME": "PRS Familiarization Program (PRSFP) – Unit Trust Consultant"
+          }
+      ],
+      "INSURANCE_CERTIFICATES": [
+          {
+              "INSURANCE_CERTIFICATE_ID": 1,
+              "NAME": "Certificate Examination in Investment-Link Life Insurance (CEILLI)"
+          },
+          {
+              "INSURANCE_CERTIFICATE_ID": 4,
+              "NAME": "Certificate from Malaysian Takaful Association (MTA) – General & Family"
+          },
+          {
+              "INSURANCE_CERTIFICATE_ID": 3,
+              "NAME": "Takaful Business Examination (TBE) – Part A and Part C (2 certificates) (for completion after 2012)"
+          },
+          {
+              "INSURANCE_CERTIFICATE_ID": 2,
+              "NAME": "Takaful Business Examination (TBE) (for completion before 2012)"
+          }
+      ],
+      "RACES": [
+          {
+              "SETTING_GENERAL_ID": 292,
+              "SET_TYPE": "RACE",
+              "SET_CODE": "CHINESE",
+              "SET_PARAM": "CHINESE",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-03-20 21:40:33"
+          },
+          {
+              "SETTING_GENERAL_ID": 291,
+              "SET_TYPE": "RACE",
+              "SET_CODE": "INDIAN",
+              "SET_PARAM": "INDIAN",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-03-20 21:40:33"
+          },
+          {
+              "SETTING_GENERAL_ID": 290,
+              "SET_TYPE": "RACE",
+              "SET_CODE": "MALAY",
+              "SET_PARAM": "MALAY",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-03-20 21:40:33"
+          },
+          {
+              "SETTING_GENERAL_ID": 293,
+              "SET_TYPE": "RACE",
+              "SET_CODE": "OTHERS",
+              "SET_PARAM": "OTHERS",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-03-20 21:40:33"
+          }
+      ],
+      "CITIZENSHIPS": [
+          {
+              "SETTING_GENERAL_ID": 286,
+              "SET_TYPE": "CITIZENSHIP",
+              "SET_CODE": null,
+              "SET_PARAM": "MALAYSIAN",
+              "SET_VALUE": null,
+              "SET_INDEX": 1,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-03-20 14:31:09"
+          },
+          {
+              "SETTING_GENERAL_ID": 287,
+              "SET_TYPE": "CITIZENSHIP",
+              "SET_CODE": null,
+              "SET_PARAM": "NON-MALAYSIAN",
+              "SET_VALUE": null,
+              "SET_INDEX": 2,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-03-20 14:31:09"
+          }
+      ],
+      "GENDERS": [
+          {
+              "SETTING_GENERAL_ID": 289,
+              "SET_TYPE": "GENDER ",
+              "SET_CODE": "FEMALE",
+              "SET_PARAM": "FEMALE",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-03-20 21:37:35"
+          },
+          {
+              "SETTING_GENERAL_ID": 288,
+              "SET_TYPE": "GENDER",
+              "SET_CODE": "MALE",
+              "SET_PARAM": "MALE",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-03-20 21:37:35"
+          }
+      ],
+      "CREDIT_LANGUAGES": [
+          {
+              "SETTING_GENERAL_ID": 675,
+              "SET_TYPE": "CREDITLANGUAGE",
+              "SET_CODE": "CHINESE",
+              "SET_PARAM": "CHINESE",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-09-15 02:43:54"
+          },
+          {
+              "SETTING_GENERAL_ID": 676,
+              "SET_TYPE": "CREDITLANGUAGE",
+              "SET_CODE": "ENGLISH",
+              "SET_PARAM": "ENGLISH",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-09-15 02:44:41"
+          },
+          {
+              "SETTING_GENERAL_ID": 674,
+              "SET_TYPE": "CREDITLANGUAGE",
+              "SET_CODE": "MALAY",
+              "SET_PARAM": "MALAY",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-09-15 02:43:54"
+          },
+          {
+              "SETTING_GENERAL_ID": 677,
+              "SET_TYPE": "CREDITLANGUAGE",
+              "SET_CODE": "OTHERS",
+              "SET_PARAM": "OTHERS",
+              "SET_VALUE": null,
+              "SET_INDEX": null,
+              "SET_DESCRIPTION": null,
+              "SET_REMARK": null,
+              "SET_CREATE_BY": null,
+              "SET_CREATE_TIMESTAMP": "2021-09-15 02:44:41"
+          }
+      ]
+  }
+}

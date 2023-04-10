@@ -1,0 +1,137 @@
+<template>
+  <aside
+    class="app-sidebar"
+    :class="computedClass"
+    :style="computedStyle"
+  >
+  <!-- <div @click="getSideBarList">Click</div>  -->
+    <ul class="app-sidebar__menu">
+      <template v-for="(item, key) in items">
+        <app-sidebar-link-group
+          :key="key"
+          :minimized="minimized"
+          :icon="item.meta && item.meta.iconClass"
+          v-if="item.children"
+          :title="$t(item.displayName)"
+          :children="item.children"
+          :active-by-default="hasActiveByDefault(item)"
+        >
+          <app-sidebar-link
+            v-for="(subMenuItem, key) in item.children"
+            :key="key"
+            :to="{ name: subMenuItem.name }"
+            :title="$t(subMenuItem.displayName)"
+          />
+        </app-sidebar-link-group>
+        <app-sidebar-link
+          v-else
+          :key="key"
+          :minimized="minimized"
+          :active-by-default="item.name === $route.name"
+          :icon="item.meta && item.meta.iconClass"
+          :to="{ name: item.name }"
+          :title="$t(item.displayName)"
+        />
+      </template>
+    </ul>
+    
+  </aside>
+  
+</template>
+
+<script>
+import { navigationRoutes } from './NavigationRoutes'
+import AppSidebarLink from './components/AppSidebarLink'
+import AppSidebarLinkGroup from './components/AppSidebarLinkGroup'
+import { ColorThemeMixin } from '../../../services/vuestic-ui'
+import * as servicesModule04 from "../../../app/module0/services04";
+
+export default {
+  name: 'app-sidebar',
+  inject: ['contextConfig'],
+  components: {
+    AppSidebarLink,
+    AppSidebarLinkGroup,
+  },
+  mixins: [ColorThemeMixin],
+  props: {
+    minimized: {
+      type: Boolean,
+      required: true,
+    },
+    color: {
+      type: String,
+      default: 'secondary',
+    },
+  },
+  data () {
+    return {
+      //items: navigationRoutes.routes,
+      items: []
+    }
+  },
+  computed: {
+    computedClass () {
+      return {
+        'app-sidebar--minimized': this.minimized,
+      }
+    },
+    computedStyle () {
+      return {
+        backgroundColor: this.$store.getters.palettePassive,
+      }
+    },
+  },
+  mounted() {
+   this.getSideBarList();
+   console.log("Navigation=",navigationRoutes.routes);
+  },
+  methods: {
+    hasActiveByDefault (item) {
+      return item.children.some(child => child.name === this.$route.name)
+    },
+    //get sidebar data
+    getSideBarList: async function() {
+      var user = JSON.parse(localStorage.getItem("user"));
+      //console.log(user);
+      var group_id = user.USER_GROUP_ID;
+      var user_id = user.user_id;
+      var user_type = user.user_type;
+      const response = await servicesModule04.getSideBarList(group_id,user_id,user_type);
+      //console.log('Sidebar List',response);
+      if(response){
+        this.items = response;
+      }else{
+        this.items = navigationRoutes.routes;
+      }
+    },
+  },
+}
+
+</script>
+
+<style lang="scss">
+.app-sidebar {
+  overflow: auto;
+  display: flex;
+  max-height: 100%;
+  flex: 0 0 16rem;
+  background-color: rgb(132, 151, 176);
+  @include media-breakpoint-down(sm) {
+    flex: 0 0 100%;
+  }
+
+  &--minimized {
+    flex: 0 0 3.25rem;
+  }
+
+  &__menu {
+    margin-bottom: 0;
+    padding-top: 2.5625rem;
+    padding-bottom: 2.5rem;
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+  }
+}
+</style>

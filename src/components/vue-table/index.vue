@@ -1,0 +1,36 @@
+<template>
+  <div>
+    <vuetable
+      ref="vuetable"
+      api-url="http://vuetable.ratiw.net/api/users"
+      :fields="fields"
+      :table-height="tableHeight"
+      pagination-path="pagination"
+      :sort-order="sortOrder"
+      :multi-sort="multiSort"
+      :per-page="perPage"
+      :append-params="moreParams"
+      detail-row-component="my-detail-row"
+      detail-row-transition="expand"
+      :row-class="rowClassCB"
+      @vuetable:pagination-data="onPaginationData"
+      @vuetable:load-success="onLoadSuccess"
+      @vuetable:loading="showLoader"
+      @vuetable:loaded="hideLoader"
+      @vuetable:cell-clicked="onCellClicked"
+      @vuetable:initialized="onInitialized"
+      @vuetable:data-reset="onDataReset"
+    ></vuetable>
+    <div class="vuetable-pagination ui bottom attached segment grid">
+      <vuetable-pagination-info
+        ref="paginationInfo"
+        :info-template="paginationInfoTemplate"
+      ></vuetable-pagination-info>
+      <component
+        :is="paginationComponent"
+        ref="pagination"
+        @vuetable-pagination:change-page="onChangePage"
+      ></component>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,145 @@
+{
+  "message": "Data successfully retrieved.",
+  "data": [
+      {
+          "siteid": "ABC",
+          "sitename": "ABC center",
+          "address": "Wangsa118,",
+          "city": " Wangsa Maju",
+          "state": "Kuala Lumpor"
+      },
+      {
+          "siteid": "ASLC",
+          "sitename": "Alor Setar Learning Centre",
+          "address": "Open University Malaysia (OUM)",
+          "city": "Alor Setar",
+          "state": "Kedah"
+      },
+      {
+          "siteid": "OUMS02",
+          "sitename": "Open University Malaysia (OUM) Sandakan 02",
+          "address": "Jalan Mengkudu",
+          "city": "Kuala Lumpur",
+          "state": "Wilayah Persekutuan Kuala Lumpur"
+      },
+      {
+          "siteid": "PSITCP0X",
+          "sitename": "PreSIT Center Profile X",
+          "address": "Jalan Gasing",
+          "city": "Petaling Jaya",
+          "state": "Selangor"
+      },
+      {
+          "siteid": "PSITCP0Y",
+          "sitename": "PreSIT Center Profile Y",
+          "address": "Jalan Meru",
+          "city": "Ipoh",
+          "state": "Perak"
+      },
+      {
+          "siteid": "SITCP1",
+          "sitename": "SIT Center Profile 1 - DELETED",
+          "address": "Jalan Gasing",
+          "city": "Petaling Jaya",
+          "state": "Selangor"
+      },
+      {
+          "siteid": "SITCP11",
+          "sitename": "SIT Center Profile 11",
+          "address": "Jalan Gasing City: Petaling Jaya",
+          "city": "Petaling Jaya",
+          "state": "Selangor"
+      },
+      {
+          "siteid": "SITCP2",
+          "sitename": "SIT Center Profile 2 - DELETED",
+          "address": "Jalan Meru",
+          "city": "Ipoh",
+          "state": "Perak"
+      },
+      {
+          "siteid": "SITCP2021",
+          "sitename": "SIT Center Profile 2021",
+          "address": "Jalan Gasing City: Petaling Jaya",
+          "city": "Petaling Jaya",
+          "state": "Selangor"
+      },
+      {
+          "siteid": "SITCP2022",
+          "sitename": "SIT Center Profile 2022",
+          "address": "Jalan Meru",
+          "city": "Ipoh",
+          "state": "Perak"
+      },
+      {
+          "siteid": "SITCP22",
+          "sitename": "SIT Center Profile 22",
+          "address": "Jalan Meru",
+          "city": "Ipoh",
+          "state": "Perak"
+      },
+      {
+          "siteid": "T-UATCP01",
+          "sitename": "T Center Profile 01 - DELETED",
+          "address": "Jalan Blkg Rumah",
+          "city": "Subang Jaya",
+          "state": "Selangor"
+      },
+      {
+          "siteid": "T-UATCP02",
+          "sitename": "T Center Profile 02 - DELETED",
+          "address": "Jalan Simambang",
+          "city": "Miri ",
+          "state": "Sarawak"
+      },
+      {
+          "siteid": "T-UATCP03",
+          "sitename": "T Center Profile 03 - DELETED",
+          "address": "Wangsa118",
+          "city": "Wangsa Maju",
+          "state": "Kuala Lumpur"
+      },
+      {
+          "siteid": "UATCP03",
+          "sitename": "Center Profile 03",
+          "address": "Jalan Bangsawan City: Ipoh",
+          "city": "Ipoh",
+          "state": "Perak"
+      },
+      {
+          "siteid": "UATCP1",
+          "sitename": "Center Profile 1",
+          "address": "Jalan Tun Razak",
+          "city": "Petaling Jaya",
+          "state": "Selangor"
+      },
+      {
+          "siteid": "UATCP2",
+          "sitename": "Center Profile 2",
+          "address": "Jalan Galing",
+          "city": "Kuantan",
+          "state": "Pahang"
+      },
+      {
+          "siteid": "VIRT",
+          "sitename": "Virtual Centre",
+          "address": "NA",
+          "city": "NA",
+          "state": "NA"
+      },
+      {
+          "siteid": "W1234444",
+          "sitename": "SIT Center Profile 2 - DELETED",
+          "address": "Taman Melaka",
+          "city": "Ampnag",
+          "state": "Melaka"
+      },
+      {
+          "siteid": "WTCKL",
+          "sitename": "World Trade Centre Kuala Lumpur",
+          "address": "41, Jalan Tun Ismail, ",
+          "city": "Chow Kit",
+          "state": "Kuala Lumpur"
+      }
+  ]
+}

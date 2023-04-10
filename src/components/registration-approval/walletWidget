@@ -1,0 +1,49 @@
+<template>
+  <div class="row text-center" v-if="distributorWallet">
+    <div class="col">
+      <h6>Pre-Payment Balance (RM)</h6>
+      <div class="alert alert-secondary p-1" role="alert">
+        RM {{ distributorWallet.wallets.CURRENT_BALANCE }}
+      </div>
+    </div>
+    <div class="col">
+      <h6>Amount to be Deducted (RM)</h6>
+      <div class="alert alert-secondary p-1" role="alert">
+        RM {{ distributorWallet.approval_pending_fee }}
+      </div>
+    </div>
+    <div class="col">
+      <h6>Balance after Deduction (RM)</h6>
+      <div class="alert alert-secondary p-1" role="alert">
+        RM{{
+          distributorWallet.wallets.CURRENT_BALANCE -
+            distributorWallet.approval_pending_fee
+        }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  import * as services02module2a from "../app/module2/services02";
+
+  export default {
+    data() {
+      return {
+        distributorWallet: {}
+      };
+    },
+    async created() {
+      await this.getDistributorWallet();
+    },
+    methods: {
+      async getDistributorWallet() {
+        const response = await services02module2a.getDistributorWallet();
+        // const response = await ConsultantRecord.getConsultantRecord();
+
+        this.distributorWallet = response;
+      }
+    },
+    name: "walletWidget"
+  };
+</script>

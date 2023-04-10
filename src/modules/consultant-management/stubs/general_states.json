@@ -1,0 +1,117 @@
+{
+  "message": "Data successfully retrieved.",
+  "data": [
+      {
+          "SETTING_GENERAL_ID": 503,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "JOHOR",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 48,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "KEDAH",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 49,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "KELANTAN",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 482,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "MELAKA",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 50,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "NEGERI SEMBILAN",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 51,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "PAHANG",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 53,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "PERAK",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 54,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "PERLIS",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 52,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "PULAU PINANG",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 42,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "SABAH",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 43,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "SARAWAK",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 483,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "SELANGOR",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 41,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "TERENGGANU",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 44,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "W.P. KUALA LUMPUR",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 45,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "W.P. LABUAN",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      },
+      {
+          "SETTING_GENERAL_ID": 46,
+          "SET_TYPE": "STATE",
+          "SET_PARAM": "W.P. PUTRAJAYA",
+          "SET_VALUE": "33",
+          "SET_INDEX": null
+      }
+  ]
+}

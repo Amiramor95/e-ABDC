@@ -1,0 +1,350 @@
+<template>
+  <div class="">
+    <div class="">
+      <div class="row">
+        <div class="col-12">
+          <va-card>
+            <h1>List of Consultant Termination</h1>
+            <br />
+            <div class="col-3">
+              <div
+                style="display: flex; align-items:center"
+                class="form-group form-group-sm has-search"
+              >
+                <span style="margin-right:10px" class="fa fa-search form-control-feedback"></span>
+                <input v-model="filter" type="text" class="form-control" placeholder="Search" />
+              </div>
+            </div>
+            <small>Click on a row to select consultant</small>
+            <div class=" content container-fluid col-ml-2">
+              <b-table
+                hover
+                selectable
+                select-mode="single"
+                :items="consultants"
+                :fields="fields"
+                :current-page="currentPage"
+                :per-page="perPage"
+                :filter="filter"
+                responsive="md"
+                :busy="isBusy"
+                @row-selected="onRowSelected"
+              >
+                <template #table-busy>
+                  <div class="text-center text-danger my-2">
+                    <b-spinner class="align-middle"></b-spinner>
+                    <strong>Loading...</strong>
+                  </div>
+                </template>
+                <template #cell(index)="data">
+                  {{ data.index + 1 }}
+                </template>
+                <template #cell()="data">
+                  <span class="description">{{ data.value }}</span>
+                </template>
+                <template #cell(actions)="data">
+                  <b-form-checkbox v-model="consultants[data.index]"> </b-form-checkbox>
+                </template>
+              </b-table>
+            </div>
+            <br />
+            <!-- <va-data-table
+              :fields="va_fields"
+              :data="consultant_data"
+              no-data-label="No data found"
+              :per-page="parseInt(perPage)"
+              :dataperpage="parseInt(perPage)"
+              clickable
+            >
+              <template slot="no" slot-scope="row">
+                {{ row.rowIndex + 1 }}
+              </template>
+              <template slot="actions" slot-scope="props">
+                <h5 class="mt-1">
+                  <span
+                    v-b-tooltip.hover
+                    title="view"
+                    v-on:click="viewRecord(props.rowData)"
+                    class="badge badge-primary mr-2"
+                  >
+                    <i class="fa fa-eye"></i
+                  ></span>
+                </h5>
+              </template>
+            </va-data-table> -->
+            <vue-form-generator
+              v-if="this.model.CONSULTANT_ID"
+              :model="model"
+              :schema="tabSchema2"
+              :options="formOptions"
+              ref="tabForm2"
+              @model-updated="onModelUpdated"
+              @validated="onValidated"
+            >
+            </vue-form-generator>
+            <br />
+            <div class="float-right">
+              <button
+                @click="submitTerminate"
+                type="button"
+                class="ml-1 btn btn-danger btn-fill btn-md"
+              >
+                <i class="fa fa-paper-plane" /> &nbsp; Terminate
+              </button>
+            </div>
+          </va-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Multiselect from 'vue-multiselect';
+import Vudal from 'vudal';
+import VueFormGenerator from 'vue-form-generator';
+import 'vue-form-generator/dist/vfg-core.css';
+import VueFormWizard from 'vue-form-wizard';
+import 'vue-form-wizard/dist/vue-form-wizard.min.css';
+import Vue from 'vue';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+
+import FullCalendar from '@fullcalendar/vue';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+
+// Import Bootstrap an BootstrapVue CSS files (order is important)
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import HorizontalScroll from 'vue-horizontal-scroll';
+import 'vue-horizontal-scroll/dist/vue-horizontal-scroll.css';
+import * as services06Module0 from '../../../app/module0/services06';
+import moment from 'moment';
+import { parse } from 'vue-currency-input';
+import * as servicesmodule0 from '../../../app/module0/services';
+import * as servicesmodule2 from '../../../app/module2/services';
+import * as services02module2 from '../../../app/module2/services02';
+import RepositoryFactory from '../../../repositories/RepositoryFactory';
+import TerminationRepository from '../../../repositories/module2/TerminationRepository';
+
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue);
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin);
+Vue.use(VueFormGenerator);
+Vue.component(Vudal);
+// register globally
+Vue.component('multiselect', Multiselect);
+
+/* -------------------------------------------------------------------------- */
+/*                            endpointrepositories                            */
+/* -------------------------------------------------------------------------- */
+const ConsultantRecord = RepositoryFactory.get('consultantrecord');
+const Termination = RepositoryFactory.get('termination');
+
+export default {
+  data() {
+    return {
+      isBusy: true,
+      terminationType: [
+        {
+          label: 'Disqualified',
+          value: '1',
+        },
+        {
+          label: 'Other (please specify)',
+          value: '2',
+        },
+      ],
+
+      formOptions: {
+        validateAfterChanged: true,
+      },
+
+      filter: null,
+      consultants: null,
+      selectedConsultant: null,
+      currentPage: 1,
+      perPage: 5,
+      visible: {
+        TERMINATION_FORM: false,
+        TERMINATION_TYPE_OTHER_SPECIFY: false,
+      },
+      model: {
+        // "TERMINATION_TYPE"
+        // "TERMINATION_DATE"
+        // "CONSULTANT_ID"
+        // "TERMINATION_REMARK"
+        // "CREATE_BY"
+        // "CREATE_TIMESTAMP"
+
+        TERMINATION_TYPE: '',
+        TERMINATION_TYPE_OTHER_SPECIFY: '',
+        TERMINATION_DATE: '',
+        CONSULTANT_ID: '',
+        TERMINATION_REMARK: '',
+        CREATE_BY: JSON.parse(localStorage.getItem('user')).user_id,
+        // CONSULTANTS: [],
+      },
+
+      // ],
+      // va_fields: [
+      //   // A virtual column that doesn't exist in items
+      //   // { key: 'actions', label: '' },
+      //   // A column that needs custom formatting
+      //   { name: '__slot:no', title: 'NO' },
+      //   { name: 'CONSULTANT_NAME', title: 'CONSULTANT NAME' },
+      //   { name: 'CONSULTANT_NRIC', title: 'NRIC NO' },
+      //   { name: 'CONSULTANT_PASSPORT_NO', title: 'PASSPORT NO' },
+      //   { name: 'CONSULTANT_FIMM_NO', title: 'FIMM NO' },
+      //   { name: 'SCHEME', title: 'CONSULTANT TYPE' },
+      // ],
+      fields: [
+        // A virtual column that doesn't exist in items
+        { key: 'index', label: 'NO' },
+        // A column that needs custom formatting
+        { key: 'CONSULTANT_NAME', label: 'CONSULTANT NAME' },
+        { key: 'CONSULTANT_NRIC', label: 'NRIC NO' },
+        { key: 'CONSULTANT_PASSPORT_NO', label: 'PASSPORT NO' },
+        { key: 'CONSULTANT_FIMM_NO', label: 'FIMM NO' },
+        { key: 'SCHEME', label: 'CONSULTANT TYPE' },
+      ],
+
+      tabSchema2: {
+        groups: [
+          {
+            styleClasses: 'row',
+            fields: [
+              {
+                type: 'vueMultiSelect',
+                label: 'Termination Type',
+                model: 'TERMINATION_TYPE',
+                placeholder: 'Enter Termination Type',
+                styleClasses: 'col-md-6',
+                required: true,
+                selectOptions: {
+                  multiple: false,
+                  label: 'label',
+                  value: 'value',
+                  searchable: false,
+                },
+                values: (model, schema) => {
+                  return this.terminationType;
+                },
+              },
+              {
+                type: 'input',
+                inputType: 'date',
+                label: 'Termination Date',
+                model: 'TERMINATION_DATE',
+                placeholder: 'Enter Termination Date',
+                required: true,
+                validator: 'date',
+                styleClasses: 'col-md-6',
+              },
+              {
+                type: 'input',
+                inputType: 'text',
+                label: 'Other',
+                model: 'TERMINATION_TYPE_OTHER_SPECIFY',
+                placeholder: 'Please specify',
+                required: true,
+                validator: 'string',
+                styleClasses: 'col-md-6',
+                visible: (model, field, form) => {
+                  return this.visible.TERMINATION_TYPE_OTHER_SPECIFY;
+                },
+              },
+              {
+                styleClasses: 'col-md-6',
+                visible: (model, field, form) => {
+                  return this.visible.TERMINATION_TYPE_OTHER_SPECIFY;
+                },
+              },
+
+              {
+                type: 'textArea',
+                required: true,
+                row: 10,
+                max: 1000,
+                label: 'Remarks / Comments',
+                model: 'TERMINATION_REMARK',
+                placeholder: 'Enter Remarks or Comments',
+                // validator: 'number',
+                styleClasses: 'col-md-12',
+              },
+            ],
+          },
+        ],
+      },
+    };
+  },
+  async mounted() {
+    await this.getConsultantRecord();
+    // await this.getFilterConsultantRecord();
+    // this.consultants = await services02module2.getConsultant();
+    // await console.log(this.consultants)
+  },
+  computed: {
+    consultant_data() {
+      if (this.consultants) return this.consultants;
+      return [];
+    },
+  },
+  methods: {
+    async getConsultantRecord() {
+      console.log('inside get consultant record');
+      const response = await ConsultantRecord.getConsultantRecord();
+      this.consultants = response.data.data;
+      this.isBusy = false;
+      console.log(this.consultants);
+    },
+    // async getFilterConsultantRecord() {
+    //   const filter_cons_records = await ConsultantRecord.getFilterConsultantRecord();
+    //   console.log('this is filter cons records', filter_cons_records);
+    // },
+    onRowSelected(items) {
+      this.model.CONSULTANT_ID = items[0].CONSULTANT_ID;
+      console.log(this.model.CONSULTANT_ID);
+    },
+    onModelUpdated(newVal, schema) {
+      console.log(schema);
+      if (schema === 'TERMINATION_TYPE') {
+        // this.visible.TERMINATION_TYPE = newVal.value;
+        this.visible.TERMINATION_TYPE_OTHER_SPECIFY = false;
+        if (newVal.label.match('Other')) {
+          this.visible.TERMINATION_TYPE_OTHER_SPECIFY = true;
+        }
+      }
+    },
+    onValidated(isValid, errors) {
+      console.log('Validation result: ', isValid, ', Errors:', errors[0].error);
+    },
+    submitTerminate: async function() {
+      // let form1 = this.$refs.tabForm2.validate();
+      // if (form1) {
+      let data = {
+        TERMINATION_TYPE: this.model.TERMINATION_TYPE.value,
+        TERMINATION_TYPE_OTHER_SPECIFY: this.model.TERMINATION_TYPE_OTHER_SPECIFY,
+        CONSULTANT_ID: this.model.CONSULTANT_ID,
+        CREATE_BY: this.model.CREATE_BY,
+        TERMINATION_REMARK: this.model.TERMINATION_REMARK,
+        TERMINATION_DATE: moment(this.model.TERMINATION_DATE).format(),
+      };
+
+      console.log(data);
+
+      const response = await Termination.postTermination(data);
+      // const returnresponse = await services02module2.postTerminateConsultant(data);
+      console.log(response);
+      // }
+    },
+
+    //     addConsultant(data) {
+    //   console.log(data);
+    //   this.selectedConsultant = data;
+    //   console.log(this.selectedConsultant);
+    // },
+  },
+};
+</script>

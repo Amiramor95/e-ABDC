@@ -1,0 +1,29 @@
+{
+  "message": "Data successfully retrieved.",
+  "data": [
+      {
+          "EXEMPTION_CATEGORY_ID": 3,
+          "NAME": "CEO"
+      },
+      {
+          "EXEMPTION_CATEGORY_ID": 4,
+          "NAME": "Directors"
+      },
+      {
+          "EXEMPTION_CATEGORY_ID": 2,
+          "NAME": "Financial Planner"
+      },
+      {
+          "EXEMPTION_CATEGORY_ID": 1,
+          "NAME": "Fund Manager"
+      },
+      {
+          "EXEMPTION_CATEGORY_ID": 5,
+          "NAME": "PRS Familiarization Program (PRSFP) – Insurance Agent"
+      },
+      {
+          "EXEMPTION_CATEGORY_ID": 6,
+          "NAME": "PRS Familiarization Program (PRSFP) – Unit Trust Consultant"
+      }
+  ]
+}
