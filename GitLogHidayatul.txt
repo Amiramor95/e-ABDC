@@ -1,0 +1,158 @@
+2021-04-30 : update dist login
+src/app/module1/services06.js
+src/components/auth/login/Login-distributor.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-30 : update upload doc
+src/app/module0/services.js
+src/components/auth/login/Login-distributor.vue
+src/components/auth/recover-password/RecoverPassword.vue
+src/pages/admin-configuration/announcement-management/cm0_eventList.vue
+src/pages/admin-configuration/document-management/cm0_excelTemplate.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-29 : Merge remote-tracking branch 'upstream/master'
+2021-04-29 : update
+src/pages/component/VfgCustomCurrencyInput.vue
+src/pages/component/VfgCustomUpload.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-28 : Merge remote-tracking branch 'upstream/master'
+2021-04-28 : update
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-28 : Merge remote-tracking branch 'upstream/master'
+2021-04-28 : update filter date
+src/pages/admin-configuration/announcement-management/cm0_eventList.vue
+src/pages/component/VfgCustomCurrencyInput.vue
+src/pages/component/VfgTheMask.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-27 : Merge remote-tracking branch 'upstream/master'
+2021-04-27 : update doc upload
+src/app/module0/services06.js
+src/app/module1/services06.js
+src/pages/admin-configuration/document-management/cm0_documentChecklist.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-26 : Merge remote-tracking branch 'upstream/master'
+2021-04-26 : currency
+package.json
+src/app/currencyFormat.js
+src/app/main.js
+src/pages/component/VfgCustomCurrencyInput.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+src/pages/distributor-management/fimm/cm1_distributorSubmissionDetails_rdApproval.vue
+
+2021-04-24 : update
+src/router/index.js
+
+2021-04-24 : Merge remote-tracking branch 'upstream/master'
+2021-04-24 : update dist approval
+src/app/module1/services06.js
+src/components/forms/form-elements/FormElements.vue
+src/pages/admin-configuration/announcement-management/cm0_eventList.vue
+src/pages/distributor-management/fimm/cm1_distributorSubmissionDetails_rdApproval.vue
+src/pages/distributor-management/fimm/cm1_distributorSubmissionList_rdApproval.vue
+src/router/index.js
+
+2021-04-23 : Merge remote-tracking branch 'upstream/master'
+2021-04-23 : update distributor approval
+src/app/module0/services.js
+src/app/module0/services06.js
+src/app/module1/services06.js
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+src/pages/distributor-management/fimm/cm1_distributorSubmissionDetails_rdApproval.vue
+src/pages/distributor-management/fimm/cm1_distributorSubmissionList_rdApproval.vue
+src/router/index.js
+
+2021-04-21 : Merge remote-tracking branch 'upstream/master'
+2021-04-21 : update service
+src/app/App.vue
+src/app/dashboard/services.js
+src/app/module0/services.js
+src/app/module1/services.js
+src/app/module1/services03.js
+src/components/auth/login/Login.vue
+src/pages/admin-configuration/screen-management/cm0_screenAccess.vue
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-20 : Merge remote-tracking branch 'upstream/master'
+2021-04-20 : update
+GitLogHidayatul.txt
+src/app/module0/services.js
+src/app/module1/services06.js
+src/components/auth/signup/Signup.vue
+src/pages/component/VfgCustomUpload.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-15 : Merge remote-tracking branch 'upstream/master'
+2021-04-15 : update distributor
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-15 : Merge remote-tracking branch 'upstream/master'
+2021-04-15 : update
+package.json
+src/components/auth/login/Login-distributor.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-14 : Merge remote-tracking branch 'upstream/master'
+2021-04-14 : update
+src/app/module1/services06.js
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-12 : Merge remote-tracking branch 'upstream/master'
+2021-04-12 : update
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-09 : Merge remote-tracking branch 'upstream/master'
+2021-04-09 : update login
+src/components/auth/login/Login-distributor.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-09 : Merge remote-tracking branch 'upstream/master'
+2021-04-09 : update
+src/app/main.js
+src/app/module1/services06.js
+src/pages/component/VfgCustomCheckbox.vue
+src/pages/component/VfgTheMask.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+src/router/index.js
+
+2021-04-07 : Merge remote-tracking branch 'upstream/master'
+2021-04-07 : update
+src/app/App.vue
+src/app/module0/services06.js
+src/app/module1/services06.js
+src/pages/component/VfgCustomFile.vue
+src/pages/component/VfgCustomTacInput.vue
+src/pages/component/VfgCustomUpload.vue
+src/pages/distributor-management/distributor/cm1_distributorMember_detailsRegistration.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-05 : Merge remote-tracking branch 'upstream/master'
+2021-04-05 : merge
+src/app/App.vue
+src/app/main.js
+src/components/admin/app-navbar/AppNavbar.vue
+src/components/admin/app-navbar/components/AppNavbarActions.vue
+src/components/admin/app-navbar/components/dropdowns/ProfileDropdown.vue
+src/components/auth/signup/Signup.vue
+src/components/card/card.vue
+src/components/dashboard/Dashboard.vue
+src/pages/component/VfgCustomTacInput.vue
+
+2021-04-05 : update
+src/app/main.js
+src/app/module0/services.js
+src/app/module0/services06.js
+src/pages/component/VfgCustomFile.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-02 : Merge remote-tracking branch 'upstream/master'
+2021-04-02 : remove unused plugin
+package.json
+src/app/main.js
+src/app/module0/services06.js
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue

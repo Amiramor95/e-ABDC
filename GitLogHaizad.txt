@@ -1,0 +1,317 @@
+2021-04-30 : update profile name
+src/components/admin/app-navbar/components/AppNavbarActions.vue
+
+2021-04-30 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-30 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-29 : update : view pdf blob
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-29 : update change page
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+
+2021-04-28 : document id
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+
+2021-04-28 : remove registration section on FiMM login
+src/components/auth/login/Login.vue
+
+2021-04-28 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-28 : Merge branch 'master' of http://192.168.2.58:3000/FiMM-Project/FiMM_Frontend_v2 into master
+2021-04-28 : logout fix
+src/app/koolreport/services.js
+src/app/module0/services.js
+src/components/auth/login/Login.vue
+
+2021-04-27 : Merge branch 'master' of rosnasihah/FiMM_Frontend_v2 into master
+2021-04-27 : Merge branch 'master' of rosnasihah/FiMM_Frontend_v2 into master
+2021-04-27 : staff api
+src/app/module0/services04.js
+src/pages/admin-configuration/screen-management/cm0_screenAccess.vue
+
+2021-04-27 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-27 : update router
+src/router/index.js
+
+2021-04-27 : Merge branch 'master' of acapxasyraf/FiMM_Frontend_v2_Main into master
+2021-04-27 : update profile
+src/components/admin/app-navbar/components/dropdowns/ProfileDropdown.vue
+src/pages/admin-configuration/announcement/index.vue
+src/pages/admin-configuration/profile/index.vue
+
+2021-04-26 : bulk upload country #1
+src/pages/admin-configuration/address-management/addressManagement2.vue
+
+2021-04-26 : Merge branch 'master' of syasya/FiMM_Frontend_v2 into master
+2021-04-26 : update notifcation
+src/components/notification/index.vue
+
+2021-04-26 : update notification
+src/components/notification/index.vue
+
+2021-04-26 : update pending task
+src/components/notification/index.vue
+src/pages/admin-configuration/pending-task/index.vue
+
+2021-04-26 : update route pending task,notification,announcement and profile
+src/pages/admin-configuration/announcement/index.vue
+src/pages/admin-configuration/notification/index.vue
+src/pages/admin-configuration/pending-task/index.vue
+src/pages/admin-configuration/profile/index.vue
+src/router/index.js
+
+2021-04-26 : add route pending task,notification,announcement and profile
+src/pages/admin-configuration/announcement/index.vue
+src/pages/admin-configuration/notification/index.vue
+src/pages/admin-configuration/pending-task/index.vue
+src/pages/admin-configuration/profile/index.vue
+src/router/index.js
+
+2021-04-26 : update route
+src/app/App.vue
+src/app/module0/services.js
+
+2021-04-26 : app layout dashboard #1
+src/components/admin/AppLayout.vue
+
+2021-04-26 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-26 : update server error
+src/app/module0/services.js
+
+2021-04-25 : logout once expired
+src/app/App.vue
+src/app/module0/services.js
+src/router/index.js
+
+2021-04-25 : update screen module
+src/app/main.js
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+src/pages/component/VfgPageRoute.vue
+
+2021-04-25 : route update and sidebar
+src/app/module0/services04.js
+src/components/admin/app-sidebar/AppSidebar.vue
+src/router/index.js
+
+2021-04-24 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-24 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-23 : sidebar component
+src/app/main.js
+src/components/sidebar/index.vue
+
+2021-04-23 : update header axios
+src/app/module5/services.js
+
+2021-04-23 : Merge branch 'master' of acapxasyraf/FiMM_Frontend_v2_Main into master
+2021-04-23 : fix services
+src/app/module1/services.js
+src/app/module1/services06.js
+
+2021-04-23 : fix services: authorization different keycloak realm
+src/app/module0/services.js
+src/app/module0/services04.js
+src/app/module1/services.js
+src/app/module1/services03.js
+src/app/module2/services.js
+src/components/auth/default.vue
+src/components/settings/index.vue
+src/pages/admin-configuration/cm0_systemSetting.vue
+src/pages/admin-configuration/screen-management/cm0_screenAccess.vue
+
+2021-04-23 : Merge branch 'master' of nurul/FiMM_Frontend_v2 into master
+2021-04-23 : update screen module
+src/app/module0/services04.js
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+
+2021-04-22 : update screen access
+src/pages/admin-configuration/screen-management/cm0_screenAccess.vue
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+
+2021-04-22 : screen module add screen page
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+
+2021-04-22 : vfg search
+src/pages/component/VfgSearch.vue
+
+2021-04-22 : clean route #1
+src/app/module0/services.js
+src/router/index.js
+
+2021-04-21 : update fix search bar
+src/app/module0/services04.js
+src/pages/component/VfgSearch.vue
+
+2021-04-21 : bulk upload 2
+src/components/excel-upload/index.vue
+src/pages/admin-configuration/address-management/cm0_addressManagement.vue
+
+2021-04-21 : bulk upload 1
+src/app/fileServices.js
+src/app/main.js
+src/components/excel-upload/index.vue
+src/pages/admin-configuration/address-management/cm0_addressManagement.vue
+src/router/index.js
+
+2021-04-21 : excel component
+src/app/main.js
+src/components/excel-reader/index.vue
+src/router/index.js
+
+2021-04-21 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-21 : logout function fix
+src/app/module0/services02.js
+
+2021-04-20 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-20 : Merge branch 'master' of rosnasihah/FiMM_Frontend_v2 into master
+2021-04-20 : Merge branch 'master' of nurul/FiMM_Frontend_v2 into master
+2021-04-16 : remove pop-up screen module
+src/app/module0/services04.js
+src/components/admin/app-navbar/AppNavbar.vue
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+
+2021-04-16 : Merge branch 'master' of http://v.irc.my:8058/FiMM-Project/FiMM_Frontend_v2 into master
+2021-04-16 : pop up login
+src/app/App.vue
+src/app/module0/services.js
+src/components/chart/chart.vue
+
+2021-04-15 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-15 : add pop up error response
+src/app/module0/services04.js
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+
+2021-04-15 : screen access update
+src/app/module0/services04.js
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+
+2021-04-15 : update screen and notification
+src/app/module0/services04.js
+src/pages/admin-configuration/screen-management/cm0_screenAccess.vue
+src/pages/admin-configuration/screen-management/cm0_screenModule.vue
+src/pages/admin-configuration/screen-management/data3.json
+
+2021-04-15 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-14 : Merge branch 'master' of syasya/FiMM_Frontend_v2 into master
+2021-04-13 : Custom Pagination
+package.json
+src/app/main.js
+src/components/pagination/index.vue
+
+2021-04-13 : update screen access
+initialize_fimm/VaDataTable.vue
+package.json
+src/app/main.js
+src/components/vue-table/index.vue
+src/components/vue-table/main.js
+src/pages/admin-configuration/screen-management/cm0_screenAccess.vue
+
+2021-04-13 : Merge branch 'master' of acapxasyraf/FiMM_Frontend_v2_Main into master
+2021-04-11 : fix color nav bar
+src/components/admin/app-navbar/AppNavbar.vue
+src/components/admin/app-navbar/components/dropdowns/ColorDropdown.vue
+
+2021-04-09 : Merge branch 'master' of http://v.irc.my:8058/FiMM-Project/FiMM_Frontend_v2 into master
+2021-04-09 : latest UI Demo
+2021-04-09 : Merge branch 'master' of acapxasyraf/FiMM_Frontend_v2_Main into master
+2021-04-09 : dropdown
+src/components/admin/app-navbar/components/dropdowns/ColorDropdown.vue
+src/components/admin/app-navbar/components/dropdowns/ColorDropdownOld.vue
+
+2021-04-09 : Merge branch 'master' of nurul/FiMM_Frontend_v2 into master
+2021-04-09 : Merge branch 'master' of acapxasyraf/FiMM_Frontend_v2_Main into master
+2021-04-09 : update
+src/components/auth/login/Login.vue
+
+2021-04-09 : update
+package.json
+src/components/admin/AppLayout.vue
+src/components/admin/app-navbar/AppNavbar.vue
+src/components/admin/app-navbar/components/dropdowns/ProfileDropdown.vue
+src/components/card/card.vue
+src/components/dashboard/Dashboard.vue
+src/components/notification/ValconNotification.vue
+src/pages/admin-configuration/cm0_systemSetting.vue
+
+2021-04-09 : Merge branch 'master' of acapxasyraf/FiMM_Frontend_v2_Main into master
+2021-04-09 : update
+2021-04-08 : update
+src/components/admin/app-navbar/components/AppNavbarActions.vue
+src/components/admin/app-navbar/components/dropdowns/ColorDropdown.vue
+src/components/admin/app-navbar/components/dropdowns/ColorDropdownOld.vue
+src/components/admin/app-navbar/components/dropdowns/ProfileDropdown.vue
+src/components/card/card.vue
+src/components/chart/chart.vue
+src/components/dashboard/Dashboard.vue
+
+2021-04-08 : Merge branch 'master' of acapxasyraf/FiMM_Frontend_v2_Main into master
+2021-04-08 : fix color
+src/components/admin/app-navbar/AppNavbar.vue
+src/components/admin/app-navbar/components/dropdowns/ColorDropdown.vue
+src/components/notification/ValconNotification.vue
+
+2021-04-08 : update color
+src/components/admin/app-navbar/AppNavbar.vue
+src/components/admin/app-navbar/components/dropdowns/ColorDropdown.vue
+src/pages/admin-configuration/screen-management/cm0_screenAccess.vue
+src/store/index.js
+
+2021-04-07 : update notification
+src/components/chart/chart.vue
+src/components/dashboard/Dashboard.vue
+src/components/notification/ValconNotification.vue
+src/components/notification/index.vue
+src/pages/distributor-management/distributor/cm1_distributor_detailsRegistration.vue
+src/router/index.js
+
+2021-04-07 : fix notification color
+src/components/admin/app-navbar/components/AppNavbarActions.vue
+src/components/notification/ValconNotification.vue
+
+2021-04-07 : migrate dashboard
+package.json
+src/components/chart/chart.vue
+src/components/dashboard/Dashboard.vue
+
+2021-04-07 : Merge branch 'master' of acapxasyraf/FiMM_Frontend_v2_Main into master
+2021-04-06 : latest
+src/components/card/card.vue
+
+2021-04-06 : latest
+src/components/card/card.vue
+
+2021-04-06 : latest
+src/components/card/card.vue
+src/components/dashboard/Dashboard.vue
+
+2021-04-06 : latest
+src/components/card/card.vue
+src/components/dashboard/Dashboard.vue
+
+2021-04-06 : latest
+src/components/card/card.vue
+src/components/dashboard/Dashboard.vue
+
+2021-04-06 : update dashboard
+src/components/chart/chart.vue
+src/components/dashboard/Dashboard.vue
+src/components/notification/index.vue
+src/router/index.js
+
+2021-04-05 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
+2021-04-05 : update dashboard
+src/components/card/card.vue
+src/components/dashboard/Dashboard.vue
+
+2021-04-05 : update dashboard and navbar
+src/app/main.js
+src/components/admin/app-navbar/AppNavbar.vue
+src/components/admin/app-navbar/components/AppNavbarActions.vue
+src/components/admin/app-navbar/components/dropdowns/ProfileDropdown.vue
+src/components/auth/signup/Signup.vue
+src/components/card/card.vue
+src/components/dashboard/Dashboard.vue
+src/pages/component/VfgCustomTacInput.vue
+
+2021-04-02 : fix nprogress loading
+src/app/App.vue
+
+2021-04-02 : Merge branch 'master' of hidayatul/FiMM_Frontend_v2 into master
