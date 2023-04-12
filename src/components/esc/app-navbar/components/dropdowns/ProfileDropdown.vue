@@ -1,20 +1,8 @@
 <template>
-  <va-dropdown
-    class="profile-dropdown"
-    v-model="isShown"
-    boundary-body
-    offset="-10, 16px"
-  >
-    <span
-      class="profile-dropdown__anchor"
-      slot="anchor"
-      :style="{ color: this.colorText }"
-    >
+  <va-dropdown class="profile-dropdown" v-model="isShown" boundary-body offset="-10, 16px">
+    <span class="profile-dropdown__anchor" slot="anchor" :style="{ color: this.colorText }">
       <slot />
-      <va-icon
-        class="pa-1"
-        :name="`fa ${isShown ? 'fa-angle-up' : 'fa-angle-down'}`"
-      />
+      <va-icon class="pa-1" :name="`fa ${isShown ? 'fa-angle-up' : 'fa-angle-down'}`" />
     </span>
     <b-list-group v-if="show">
       <b-list-group-item>
@@ -42,7 +30,7 @@ import Vue from 'vue'
 import * as servicesModule0 from '../../../../../app/module0/services'
 export default {
   name: 'profile-section',
-  data () {
+  data() {
     return {
       isShown: false,
       userdata: JSON.parse(localStorage.getItem('user')),
@@ -50,11 +38,11 @@ export default {
       colorText: this.$store.getters.paletteText,
     }
   },
-  mounted () {
-    Vue.config.refreshIntervalId = setInterval(() => {
-      this.getUserLoginStatus()
-    }, 30000)
-    console.log('Vue.config.refreshIntervalId =', Vue.config.refreshIntervalId)
+  mounted() {
+    // Vue.config.refreshIntervalId = setInterval(() => {
+    //   this.getUserLoginStatus()
+    // }, 30000)
+    // console.log('Vue.config.refreshIntervalId =', Vue.config.refreshIntervalId)
   },
 
   watch: {
@@ -74,7 +62,7 @@ export default {
   },
 
   methods: {
-    profile () {
+    profile() {
       this.show = false
 
       this.isShown = false
@@ -94,14 +82,14 @@ export default {
           localStorage.clear()
           this.$router.push({ name: 'default' })
           // location.reload();
-        // location.href = 'http://localhost:8080/';
+          // location.href = 'http://localhost:8080/';
         }
       }
     },
-    changePassword () {
+    changePassword() {
       this.$router.push({ name: 'esc-change-password' })
     },
-    async logout () {
+    async logout() {
       const userid = this.userdata.user_id
       const usertype = this.userdata.user_type
       const response = await servicesModule0.logout(userid, usertype) // logout first to clear cache
@@ -111,7 +99,7 @@ export default {
       localStorage.clear()
       this.$router.push({ name: 'default' })
       // location.reload();
-    // }
+      // }
     },
   },
 }

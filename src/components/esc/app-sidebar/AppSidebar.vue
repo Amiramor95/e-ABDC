@@ -1,36 +1,15 @@
 <template>
-  <aside
-    class="app-sidebar"
-    :class="computedClass"
-    :style="computedStyle"
-  >
+  <aside class="app-sidebar" :class="computedClass" :style="computedStyle">
     <ul class="app-sidebar__menu">
       <template v-for="(item, key) in items">
-        <app-sidebar-link-group
-          :key="key"
-          :minimized="minimized"
-          :icon="item.meta && item.meta.iconClass"
-          v-if="item.children"
-          :title="$t(item.displayName)"
-          :children="item.children"
-          :active-by-default="hasActiveByDefault(item)"
-        >
-          <app-sidebar-link
-            v-for="(subMenuItem, key) in item.children"
-            :key="key"
-            :to="{ name: subMenuItem.name }"
-            :title="$t(subMenuItem.displayName)"
-          />
+        <app-sidebar-link-group :key="key" :minimized="minimized" :icon="item.meta && item.meta.iconClass"
+          v-if="item.children" :title="$t(item.displayName)" :children="item.children"
+          :active-by-default="hasActiveByDefault(item)">
+          <app-sidebar-link v-for="(subMenuItem, key) in item.children" :key="key" :to="{ name: subMenuItem.name }"
+            :title="$t(subMenuItem.displayName)" />
         </app-sidebar-link-group>
-        <app-sidebar-link
-          v-else
-          :key="key"
-          :minimized="minimized"
-          :active-by-default="item.name === $route.name"
-          :icon="item.meta && item.meta.iconClass"
-          :to="{ name: item.name }"
-          :title="$t(item.displayName)"
-        />
+        <app-sidebar-link v-else :key="key" :minimized="minimized" :active-by-default="item.name === $route.name"
+          :icon="item.meta && item.meta.iconClass" :to="{ name: item.name }" :title="$t(item.displayName)" />
       </template>
     </ul>
   </aside>
@@ -61,33 +40,33 @@ export default {
       default: 'secondary',
     },
   },
-  data () {
+  data() {
     return {
       items: navigationRoutes.routes,
     }
   },
   computed: {
-    computedClass () {
+    computedClass() {
       return {
         'app-sidebar--minimized': this.minimized,
       }
     },
-    computedStyle () {
+    computedStyle() {
       return {
         backgroundColor: this.$store.getters.palettePassive,
       }
     },
   },
   mounted() {
-   this.getSideBarList(JSON.parse(localStorage.getItem("user")).USER_GROUP_ID)
+    //  this.getSideBarList(JSON.parse(localStorage.getItem("user")).USER_GROUP_ID)
   },
   methods: {
-    hasActiveByDefault (item) {
+    hasActiveByDefault(item) {
       return item.children.some(child => child.name === this.$route.name)
     },
-    getSideBarList: async function(e) {
+    getSideBarList: async function (e) {
       const response = await servicesModule04.getSideBarList(e);
-      console.log('Sidebar List',response);
+      console.log('Sidebar List', response);
     },
   },
 }
@@ -101,6 +80,7 @@ export default {
   max-height: 100%;
   flex: 0 0 16rem;
   background-color: rgb(132, 151, 176);
+
   @include media-breakpoint-down(sm) {
     flex: 0 0 100%;
   }

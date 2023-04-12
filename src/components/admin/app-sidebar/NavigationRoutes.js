@@ -939,4 +939,4 @@ export const navigationRoutes = {
       },
     },
   ],
-}
+};

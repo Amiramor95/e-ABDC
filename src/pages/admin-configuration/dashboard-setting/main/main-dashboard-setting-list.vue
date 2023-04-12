@@ -1,60 +1,73 @@
- <template>
+<template>
   <div class="card-body">
     <div class="row justify-content-center">
       <div class="col-lg-10">
         <h4 slot="header">Dashboard Settings</h4>
       </div>
       <!-- 10 -->
-     <loder v-show="isLoader" />
-     <div class="text-center text-danger my-2 align-center" v-if="!isDataReady">
-      <b-spinner class="align-middle"></b-spinner>
-      <strong>Loading...</strong>
-    </div>
+      <loder v-show="isLoader" />
+      <div class="text-center text-danger my-2 align-center" v-if="!isDataReady">
+        <b-spinner class="align-middle"></b-spinner>
+        <strong>Loading...</strong>
+      </div>
       <va-card class=" ml-4 col-lg-10 my-1 px-1" v-else>
         <h5>
-          <i class="va-icon app-sidebar-link__item-icon vuestic-iconset vuestic-iconset-dashboard"></i>&nbsp;&nbsp; <b>Main Dashboard Setting</b>
+          <i class="va-icon app-sidebar-link__item-icon vuestic-iconset vuestic-iconset-dashboard"></i>&nbsp;&nbsp;
+          <b>Main Dashboard Setting</b>
         </h5>
         <hr />
         <div class="ml-5">
-             <form @submit.prevent="submit"  id="distid">
+          <form @submit.prevent="submit" id="distid">
             <table class="va-table">
-                <thead>
+              <thead>
                 <tr>
-                <th>No. </th>
-                 <th>Module </th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Display Type</th>
-                <th>Active</th>
-                <th>Index</th>
-                <!-- <th>Size</th> -->
+                  <th>No. </th>
+                  <th>Module </th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Display Type</th>
+                  <th>Active</th>
+                  <th>Index</th>
+                  <!-- <th>Size</th> -->
                 </tr>
-                </thead>
-                <tbody>
+              </thead>
+              <tbody>
                 <tr v-for="(distributorSetting, k) in distributorSettingList" :key="k">
-                <td class="displaye_size_small">{{ k+1 }}</td>
-                <td class="displaye_size_small">{{ distributorSetting.DASHBOARD_TYPE }}</td>
-                <td class="displaye_size_small">{{ distributorSetting.DASHBOARD_LIST }}</td>
-                <td class="displaye_size_big">{{ distributorSetting.DASHBOARD_DESCRIPTION }}</td>
-                <td class="displaye_size_big">
-                  <div v-if="typeof distributorSetting.setting_setup === 'object'">
-                  <select name="SETTING_CHART_ID" v-model='distributorSetting.setting_setup["SETTING_CHART_ID"]' :id="k" class="form-control control chart_box">
-                  <option v-for="chart in chartlist" v-bind:value="chart.CHART_ID" :key="chart.CHART_ID">
-                  {{ chart.CHART_NAME }}
-                  </option>
-                  </select>
-                  </div>
+                  <td class="displaye_size_small">{{ k + 1 }}</td>
+                  <td class="displaye_size_small">{{ distributorSetting.DASHBOARD_TYPE }}</td>
+                  <td class="displaye_size_small">{{ distributorSetting.DASHBOARD_LIST }}</td>
+                  <td class="displaye_size_big">{{ distributorSetting.DASHBOARD_DESCRIPTION }}</td>
+                  <td class="displaye_size_big">
+                    <div v-if="typeof distributorSetting.setting_setup === 'object'">
+                      <select name="SETTING_CHART_ID" v-model='distributorSetting.setting_setup["SETTING_CHART_ID"]'
+                        :id="k" class="form-control control chart_box">
+                        <option v-for="chart in chartlist" v-bind:value="chart.CHART_ID" :key="chart.CHART_ID">
+                          {{ chart.CHART_NAME }}
+                        </option>
+                      </select>
+                    </div>
                   </td>
-                <td class="displaye_size" v-if="typeof distributorSetting.setting_setup === 'object'"><input type="checkbox" true-value="1" false-value="0" :id="k"   v-model='distributorSetting.setting_setup["SETTING_STATUS"]'  @click='checkStatus($event,k,distributorSetting.setting_setup["DISPLAY_SETTING_ID"])' class="index_box"></td>
-                <td class="displaye_size" v-if="typeof distributorSetting.setting_setup === 'object'"> <input type="text"  name="SETTING_INDEX"  v-model='distributorSetting.setting_setup["SETTING_INDEX"]' @keypress="onlyNumber" :id="k"   @change='checkNumber(distributorSetting.setting_setup["SETTING_INDEX"],k)'  class="index_box"/>
-                <input type="hidden"  name="DASHBOARD_MAIN_ID"  v-model="distributorSetting.DASHBOARD_MAIN_ID" :id="k" />
-                     <input type="hidden"  name="DISPLAY_SETTING_ID"  v-model='distributorSetting.setting_setup["DISPLAY_SETTING_ID"]' :id="k" />
-                      <input type="hidden"  name="SETTING_USER_ID"  v-model='distributorSetting.setting_setup["SETTING_USER_ID"]' :id="k" />
-                       <input type="hidden"  name="SETTING_CHART_ID1"  v-model='distributorSetting.setting_setup["DISPLAY_SETTING_STYLE"]' :id="k" />
-                       <input type="hidden"  name="DASHBOARD_TYPE"  v-model='distributorSetting.DASHBOARD_TYPE' :id="k" />
-                </td>
-                <!-- <td class="displaye_size_small">Small</td> -->
-                    <!-- <td class="displaye_size_medium" v-if="typeof distributorSetting.setting_setup === 'object'">
+                  <td class="displaye_size" v-if="typeof distributorSetting.setting_setup === 'object'"><input
+                      type="checkbox" true-value="1" false-value="0" :id="k"
+                      v-model='distributorSetting.setting_setup["SETTING_STATUS"]'
+                      @click='checkStatus($event, k, distributorSetting.setting_setup["DISPLAY_SETTING_ID"])'
+                      class="index_box"></td>
+                  <td class="displaye_size" v-if="typeof distributorSetting.setting_setup === 'object'"> <input
+                      type="text" name="SETTING_INDEX" v-model='distributorSetting.setting_setup["SETTING_INDEX"]'
+                      @keypress="onlyNumber" :id="k"
+                      @change='checkNumber(distributorSetting.setting_setup["SETTING_INDEX"], k)' class="index_box" />
+                    <input type="hidden" name="DASHBOARD_MAIN_ID" v-model="distributorSetting.DASHBOARD_MAIN_ID"
+                      :id="k" />
+                    <input type="hidden" name="DISPLAY_SETTING_ID"
+                      v-model='distributorSetting.setting_setup["DISPLAY_SETTING_ID"]' :id="k" />
+                    <input type="hidden" name="SETTING_USER_ID"
+                      v-model='distributorSetting.setting_setup["SETTING_USER_ID"]' :id="k" />
+                    <input type="hidden" name="SETTING_CHART_ID1"
+                      v-model='distributorSetting.setting_setup["DISPLAY_SETTING_STYLE"]' :id="k" />
+                    <input type="hidden" name="DASHBOARD_TYPE" v-model='distributorSetting.DASHBOARD_TYPE' :id="k" />
+                  </td>
+                  <!-- <td class="displaye_size_small">Small</td> -->
+                  <!-- <td class="displaye_size_medium" v-if="typeof distributorSetting.setting_setup === 'object'">
                       <select name="SETTING_CHART_ID1" v-model='distributorSetting.setting_setup["DISPLAY_SETTING_STYLE"]' :id="k" class="form-control control chart_box">
                   <option v-for="disarray in Display_Array" v-bind:value="disarray.name" :key="disarray.name">
                   {{ disarray.name }}
@@ -62,9 +75,9 @@
                   </select>
                                   </td> -->
                 </tr>
-                </tbody>
+              </tbody>
 
-        <!-- <tbody>
+              <!-- <tbody>
           <tr v-for="user in users" :key="user.id">
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
@@ -76,24 +89,17 @@
             </td>
           </tr>
         </tbody> -->
-      </table>
-      <br>
-       <button
-          @click="back"
-          type="button"
-          class="btn btn-primary btn-fill btn-md"
-        >
-          <i class="fa fa-step-backward" /> &nbsp; Previous
-        </button>
-        <div class="float-right">
-        <button
-        type="submit"
-        :disabled=isDisable
-        class="ml-2 btn btn-primary btn-fill btn-md">
-        <i class="fa fa-save" /> &nbsp; Save
-        </button>
-    </div>
-      </form>
+            </table>
+            <br>
+            <button @click="back" type="button" class="btn btn-primary btn-fill btn-md">
+              <i class="fa fa-step-backward" /> &nbsp; Previous
+            </button>
+            <div class="float-right">
+              <button type="submit" :disabled=isDisable class="ml-2 btn btn-primary btn-fill btn-md">
+                <i class="fa fa-save" /> &nbsp; Save
+              </button>
+            </div>
+          </form>
         </div>
       </va-card>
     </div>
@@ -112,199 +118,194 @@ import jQuery from "jquery";
 
 export default {
   // eslint-disable-next-line vue/no-unused-components
-    mounted() {
-        this.userdata = JSON.parse(localStorage.getItem("user"));
-         this.getAllChart();
-        this.getADMINSetting();
-    },
-  components: { Spacing,loder },
+  mounted() {
+    this.userdata = JSON.parse(localStorage.getItem("user"));
+    this.getAllChart();
+    // this.getADMINSetting();
+  },
+  components: { Spacing, loder },
   computed: {
-     filteredDataDistributor() {
-      if (!this.term || this.term.length < 1) {
-        return this.distributorSettingList;
-      }
-     }
+    //  filteredDataDistributor() {
+    //   if (!this.term || this.term.length < 1) {
+    //     return this.distributorSettingList;
+    //   }
+    //  }
   },
   // DATA SCHEMA
   data() {
     return {
-        term:null,
-        isDataReady: false,
-        isDisable: false,
-        isLoader: false,
-        userdata: {},
-        chartlist: [],
-        SETTING_CHART_ID :'',
-        Display_Array: [
-        {name: "Weekly", selected: true },
-        {name: "Monthly", selected: false },
-        {name: "Yearly", selected: false },
-        ],
-        distributorSettingList: [
-                  {
-                    SETTING_CHART_ID: 1,
-                    SETTING_STATUS: 0,
-                    SETTING_INDEX: 0,
-                    DASHBOARD_MAIN_ID: 0,
-                    DISPLAY_SETTING_ID: 0,
-                    DISPLAY_SETTING_STYLE: 'Daily',
-                    SETTING_USER_ID: 0,
-                    SETTING_USER_TYPE: '',
-                    DASHBOARD_TYPE: '',
-                  }
-                ],
+      term: null,
+      isDataReady: false,
+      isDisable: false,
+      isLoader: false,
+      userdata: {},
+      chartlist: [],
+      SETTING_CHART_ID: '',
+      Display_Array: [
+        { name: "Weekly", selected: true },
+        { name: "Monthly", selected: false },
+        { name: "Yearly", selected: false },
+      ],
+      distributorSettingList: [
+        {
+          SETTING_CHART_ID: 1,
+          SETTING_STATUS: 0,
+          SETTING_INDEX: 0,
+          DASHBOARD_MAIN_ID: 0,
+          DISPLAY_SETTING_ID: 0,
+          DISPLAY_SETTING_STYLE: 'Daily',
+          SETTING_USER_ID: 0,
+          SETTING_USER_TYPE: '',
+          DASHBOARD_TYPE: '',
+        }
+      ],
     };
   },
   methods: {
     back() {
-    this.$router.push("/fimm/main-dashboard-main-setting");
+      this.$router.push("/fimm/main-dashboard-main-setting");
     },
-    async checkStatus(event, k,id){
+    async checkStatus(event, k, id) {
 
-      if(event.target.checked) {
-       let checklist = this.distributorSettingList.filter( (distributorSetting) => distributorSetting.setting_setup['SETTING_STATUS']== 1);
-       // console.log("Checklist1=",this.distributorSettingList);
-        let totalcheck= checklist.length;
-        console.log("Checklist=",checklist);
-        console.log("total=",totalcheck);
+      if (event.target.checked) {
+        let checklist = this.distributorSettingList.filter((distributorSetting) => distributorSetting.setting_setup['SETTING_STATUS'] == 1);
+        // console.log("Checklist1=",this.distributorSettingList);
+        let totalcheck = checklist.length;
+        console.log("Checklist=", checklist);
+        console.log("total=", totalcheck);
         if (totalcheck <= 5) {
-            this.isDisable = false;
+          this.isDisable = false;
         }
-        else{
-            this.isDisable = true;
-            // alert("You cannot Check More Than 6");
-                Vue.$toast.open({
-                message: "You cannot Check More Than 6",
-                type: 'error',
-                });
+        else {
+          this.isDisable = true;
+          // alert("You cannot Check More Than 6");
+          Vue.$toast.open({
+            message: "You cannot Check More Than 6",
+            type: 'error',
+          });
         }
       } else {
-         console.log("ID=",id);
-         if(id != '')
-         {
-         const response = await servicesModule0.deleteMainDashboardSetting(id);
+        console.log("ID=", id);
+        if (id != '') {
+          const response = await servicesModule0.deleteMainDashboardSetting(id);
           this.getADMINSetting();
-         }
-         // this.distributorSettingList[k].SETTING_STATUS=0;
-          this.distributorSettingList[k].setting_setup["SETTING_STATUS"]=0;
-          let unchecklist = this.distributorSettingList.filter( (distributorSetting) => distributorSetting.setting_setup['SETTING_STATUS'] == 1);
-          let totaluncheck= unchecklist.length;
-
-           console.log("UnChecklist=",unchecklist);
-           console.log("UnTotal=",totaluncheck);
-          if (totaluncheck <= 6) {
-            this.isDisable = false;
         }
-        else{
-            this.isDisable = true;
-              Vue.$toast.open({
-                message: "You cannot Check More Than 6",
-                type: 'error',
-                });
+        // this.distributorSettingList[k].SETTING_STATUS=0;
+        this.distributorSettingList[k].setting_setup["SETTING_STATUS"] = 0;
+        let unchecklist = this.distributorSettingList.filter((distributorSetting) => distributorSetting.setting_setup['SETTING_STATUS'] == 1);
+        let totaluncheck = unchecklist.length;
+
+        console.log("UnChecklist=", unchecklist);
+        console.log("UnTotal=", totaluncheck);
+        if (totaluncheck <= 6) {
+          this.isDisable = false;
+        }
+        else {
+          this.isDisable = true;
+          Vue.$toast.open({
+            message: "You cannot Check More Than 6",
+            type: 'error',
+          });
         }
       }
 
     },
-     onlyNumber ($event) {
-          let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
-          if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
-          $event.preventDefault();
-          }
-      },
-      checkNumber(indexnumber,k){
-          console.log("indexnumber=",indexnumber);
-          console.log("k=", this.distributorSettingList);
-          if(indexnumber<=6)
-          {
-            this.isDisable = false;
-          }
-          else{
-             Vue.$toast.open({
-                          message: "You cannot Enter More Than 6",
-                          type: 'error',
-                          });
-           // alert("You cannot Enter More Than 6");
-            this.isDisable = true;
-            //this.distributorSettingList[k].SETTING_INDEX=0;
-            this.distributorSettingList[k].setting_setup["SETTING_INDEX"]=0;
-          }
-     },
-    getADMINSetting: async function() {
-       // console.log("UserTYPE=",this.userdata.user_type);
-        const userID=this.userdata.user_id;
-        const userTYPE=this.userdata.user_type;
-        const response = await servicesModule0.getMAINDASHBOARDSettingList(userID,userTYPE);
-        console.log("CAS REsponse=",response);
-        this.distributorSettingList = response;
-         let checklist = this.distributorSettingList.filter( (distributorSetting) => distributorSetting.setting_setup['SETTING_STATUS'] == 1);
-        let chklength = checklist.length;
-        console.log("chklength111=",chklength);
-        if(chklength < 6)
-        {
-          this.isDisable = false;
-        }
-        else
-        {
-          // this.isDisable = true;
-        }
-        this.isDataReady = true;
-       console.log("Distributor List=",this.distributorSettingList);
+    onlyNumber($event) {
+      let keyCode = ($event.keyCode ? $event.keyCode : $event.which);
+      if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
+        $event.preventDefault();
+      }
     },
-     getAllChart: async function() {
-        const response = await servicesModule0.getChartList();
-        this.chartlist = response;
-        console.log("Chart List=",response);
+    checkNumber(indexnumber, k) {
+      console.log("indexnumber=", indexnumber);
+      console.log("k=", this.distributorSettingList);
+      if (indexnumber <= 6) {
+        this.isDisable = false;
+      }
+      else {
+        Vue.$toast.open({
+          message: "You cannot Enter More Than 6",
+          type: 'error',
+        });
+        // alert("You cannot Enter More Than 6");
+        this.isDisable = true;
+        //this.distributorSettingList[k].SETTING_INDEX=0;
+        this.distributorSettingList[k].setting_setup["SETTING_INDEX"] = 0;
+      }
     },
-   async submit() {
-      const userID=this.userdata.user_id;
-      const userTYPE=this.userdata.user_type;
-      let checklist = this.distributorSettingList.filter( (distributorSetting) => distributorSetting.setting_setup['SETTING_STATUS'] == 1);
+    getADMINSetting: async function () {
+      // console.log("UserTYPE=",this.userdata.user_type);
+      const userID = this.userdata.user_id;
+      const userTYPE = this.userdata.user_type;
+      const response = await servicesModule0.getMAINDASHBOARDSettingList(userID, userTYPE);
+      console.log("CAS REsponse=", response);
+      this.distributorSettingList = response;
+      let checklist = this.distributorSettingList.filter((distributorSetting) => distributorSetting.setting_setup['SETTING_STATUS'] == 1);
+      let chklength = checklist.length;
+      console.log("chklength111=", chklength);
+      if (chklength < 6) {
+        this.isDisable = false;
+      }
+      else {
+        // this.isDisable = true;
+      }
+      this.isDataReady = true;
+      console.log("Distributor List=", this.distributorSettingList);
+    },
+    getAllChart: async function () {
+      const response = await servicesModule0.getChartList();
+      this.chartlist = response;
+      console.log("Chart List=", response);
+    },
+    async submit() {
+      const userID = this.userdata.user_id;
+      const userTYPE = this.userdata.user_type;
+      let checklist = this.distributorSettingList.filter((distributorSetting) => distributorSetting.setting_setup['SETTING_STATUS'] == 1);
       let allCheckedSetting = checklist.length;
-      console.log("formContents=",checklist);
+      console.log("formContents=", checklist);
       let proceedSave = true;
       checklist.forEach(element => {
-         //console.log("element=",element.setting_setup.DISPLAY_SETTING_STYLE);
-        if(element.setting_setup.SETTING_CHART_ID == null || element.setting_setup.SETTING_INDEX == null){
+        //console.log("element=",element.setting_setup.DISPLAY_SETTING_STYLE);
+        if (element.setting_setup.SETTING_CHART_ID == null || element.setting_setup.SETTING_INDEX == null) {
           proceedSave = false;
           return;
         }
       });
-      if (!proceedSave){
+      if (!proceedSave) {
         Vue.$toast.open({
           message: "Fields can not be empty!",
           type: 'error',
         });
         return;
       }
-      console.log("userID=",userID);
-      console.log("allCheckedSetting=",allCheckedSetting);
-      if(allCheckedSetting <=6)
-      {
+      console.log("userID=", userID);
+      console.log("allCheckedSetting=", allCheckedSetting);
+      if (allCheckedSetting <= 6) {
         try {
-              // eslint-disable-next-line no-unused-vars
-            const response = await servicesModule0.createMainDashboardSetting(checklist,userID,userTYPE);
-            this.getADMINSetting();
+          // eslint-disable-next-line no-unused-vars
+          const response = await servicesModule0.createMainDashboardSetting(checklist, userID, userTYPE);
+          this.getADMINSetting();
 
-                  Vue.$toast.open({
-                            message: "Data successfully updated.",
-                            type: 'success',
-                            });
-                            this.getCASSetting();
-          } catch (error) {
-            // console.log(error);
-            //     Vue.$toast.open({
-            //     message: "Choose Data",
-            //     type: 'error',
-            // });
-          }
-        }
-        else{
           Vue.$toast.open({
-            message: "You cannot Check More Than 6",
-            type: 'error',
+            message: "Data successfully updated.",
+            type: 'success',
           });
+          this.getCASSetting();
+        } catch (error) {
+          // console.log(error);
+          //     Vue.$toast.open({
+          //     message: "Choose Data",
+          //     type: 'error',
+          // });
         }
-   },
+      }
+      else {
+        Vue.$toast.open({
+          message: "You cannot Check More Than 6",
+          type: 'error',
+        });
+      }
+    },
   }
 };
 </script>
@@ -313,38 +314,48 @@ export default {
 .app-layout__main {
   background: #e8e8e8;
 }
-.va-table{
-    width: 100%;
+
+.va-table {
+  width: 100%;
 }
-.text-center{
-text-align: center !important;
+
+.text-center {
+  text-align: center !important;
 }
-.align-center{
-justify-content: center;
+
+.align-center {
+  justify-content: center;
 }
-.chart_box{
+
+.chart_box {
   width: 70%;
 }
-.index_box{
+
+.index_box {
   width: 50%;
   height: 30px;
   text-align: center;
 }
-.displaye_size{
+
+.displaye_size {
   width: 7%;
- // text-align: center;
+  // text-align: center;
 }
-.displaye_size_medium{
+
+.displaye_size_medium {
   width: 12%;
   text-align: center;
 }
-.displaye_size_big{
+
+.displaye_size_big {
   width: 20%;
   text-align: left;
 }
-.displaye_size_small{
+
+.displaye_size_small {
   width: 6%;
 }
+
 /* Absolute Center Spinner */
 .loading {
   position: fixed;
@@ -368,9 +379,9 @@ justify-content: center;
   left: 0;
   width: 100%;
   height: 100%;
-    background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+  background: radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
 
-  background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+  background: -webkit-radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
 }
 
 /* :not(:required) hides these rules from IE9 and below */
@@ -396,8 +407,8 @@ justify-content: center;
   -o-animation: spinner 150ms infinite linear;
   animation: spinner 150ms infinite linear;
   border-radius: 0.5em;
-  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
 }
 
 /* Animation */
@@ -410,6 +421,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -418,6 +430,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     transform: rotate(360deg);
   }
 }
+
 @-moz-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
@@ -426,6 +439,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -434,6 +448,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     transform: rotate(360deg);
   }
 }
+
 @-o-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
@@ -442,6 +457,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -450,6 +466,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     transform: rotate(360deg);
   }
 }
+
 @keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
@@ -458,6 +475,7 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -465,5 +483,4 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
   }
-}
-</style>
+}</style>

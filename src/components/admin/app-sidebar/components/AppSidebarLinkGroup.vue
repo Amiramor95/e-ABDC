@@ -1,67 +1,32 @@
 <template>
-  <li
-    class="app-sidebar-link-group"
-    :class="computedClass"
-  >
+  <li class="app-sidebar-link-group" :class="computedClass">
     <div v-if="!minimized">
-    <va-modal
-    v-model="showStaticModal"
-    :title="notifyTitle"
-    :message="menuNotification"
-    no-dismiss
-    cancel-text=""
-    ok-text="OK"
-    @ok="proceedToNotification"
-    />
+      <va-modal v-model="showStaticModal" :title="notifyTitle" :message="menuNotification" no-dismiss cancel-text=""
+        ok-text="OK" @ok="proceedToNotification" />
 
-    
-     
+
+
       <div @click.stop.prevent="toggleMenuItem(title)">
-        <app-sidebar-link
-          :icon="icon"
-          :iconRight="`fa fa-angle-${expanded ? 'up' : 'down'}`"
-          :title="title"
-        />
+        <app-sidebar-link :icon="icon" :iconRight="`fa fa-angle-${expanded ? 'up' : 'down'}`" :title="title" />
       </div>
 
       <transition-expand>
-        <ul
-          class="app-sidebar-link-group__submenu"
-          v-show="expanded"
-          ref="linkGroupWrapper"
-        >
-          <slot/>
+        <ul class="app-sidebar-link-group__submenu" v-show="expanded" ref="linkGroupWrapper">
+          <slot />
         </ul>
       </transition-expand>
     </div>
 
-    <va-dropdown
-      v-if="minimized"
-      position="right"
-      fixed
-      :preventOverflow="false"
-      ref="dropdown"
-    >
+    <va-dropdown v-if="minimized" position="right" fixed :preventOverflow="false" ref="dropdown">
       <div slot="anchor">
-        <app-sidebar-link
-          :icon="icon"
-          iconRight="material-icons"
-          iconRightContent="more_horiz"
-          :activeByDefault="isActive"
-          minimized
-        />
+        <app-sidebar-link :icon="icon" iconRight="material-icons" iconRightContent="more_horiz"
+          :activeByDefault="isActive" minimized />
       </div>
-      <ul
-        class="app-sidebar-link-group__submenu"
-        :style="computedSubmenuColor"
-      >
-        <slot/>
+      <ul class="app-sidebar-link-group__submenu" :style="computedSubmenuColor">
+        <slot />
       </ul>
     </va-dropdown>
   </li>
-
-
-
 </template>
 
 <script>
@@ -73,7 +38,7 @@ import * as servicesModule02 from "../../../../app/module0/services02";
 
 export default {
   name: 'app-sidebar-link-group',
-   mounted () {
+  mounted() {
     this.showStaticModal = false
   },
   mixins: [ColorThemeMixin],
@@ -94,7 +59,7 @@ export default {
     AppSidebarLink,
     Vudal,
   },
-  data () {
+  data() {
     return {
       isActive: this.activeByDefault,
       isHovered: false,
@@ -106,58 +71,56 @@ export default {
     }
   },
   watch: {
-    $route () {
+    $route() {
       this.$refs.dropdown && this.$refs.dropdown.hide()
       this.updateActiveState()
     },
-    minimized (value) {
+    minimized(value) {
       if (!value) {
         this.isActive = false
       } else {
         this.updateActiveState()
       }
     },
-    '$store.getters.paletteText': function() {
+    '$store.getters.paletteText': function () {
       this.colorText = this.$store.getters.paletteText;
     }
   },
-  methods: 
+  methods:
   {
-    proceedToNotification () {
-      this.$router.push('/fimm/page-under-maintenance')
+    proceedToNotification() {
+      // this.$router.push('/fimm/page-under-maintenance')
     },
-    async toggleMenuItem (title) {
-        var usersidebar = JSON.parse(localStorage.getItem("user"));
-        var user_type_sidebar = usersidebar.user_type;
-        if(user_type_sidebar == 'fimm' || user_type_sidebar == 'DISTRIBUTOR')
-        {
-        const responsepagenoti = await servicesModule02.getMaintanceNotification(user_type_sidebar,title);
-        if(responsepagenoti.length == 0)
-        {
-         this.expanded = !this.expanded;
-         //this.showStaticModal = false;
+    async toggleMenuItem(title) {
+      var usersidebar = JSON.parse(localStorage.getItem("user"));
+      var user_type_sidebar = usersidebar.user_type;
+      if (user_type_sidebar == 'fimm' || user_type_sidebar == 'DISTRIBUTOR') {
+        const responsepagenoti = await servicesModule02.getMaintanceNotification(user_type_sidebar, title);
+        if (responsepagenoti.length == 0) {
+          this.expanded = !this.expanded;
+          //this.showStaticModal = false;
         }
-        else{
-            this.expanded = this.expanded;
-            var html = responsepagenoti[0].NOTIFICATION_DESC;
-            var div = document.createElement("div");
-            div.innerHTML = html;
-            var text = div.textContent || div.innerText || "";
-            this.notifyTitle = responsepagenoti[0].NOTIFICATION_TITLE;
-            this.menuNotification = text;
-             this.showStaticModal = true;
-             
+        else {
+          this.expanded = this.expanded;
+          var html = responsepagenoti[0].NOTIFICATION_DESC;
+          var div = document.createElement("div");
+          div.innerHTML = html;
+          var text = div.textContent || div.innerText || "";
+          this.notifyTitle = responsepagenoti[0].NOTIFICATION_TITLE;
+          this.menuNotification = text;
+          this.showStaticModal = true;
+
         }
-        }
-        else{
-           this.expanded = !this.expanded;
-        } 
+      }
+      else {
+        this.expanded = !this.expanded;
+      }
 
     },
-    updateHoverState () {
+    updateHoverState() {
       this.isHovered = !this.isHovered
     },
-    updateActiveState () {
+    updateActiveState() {
       const active = this.children.some(item => item.name === this.$route.name)
 
       this.isActive = this.minimized ? active : false
@@ -165,13 +128,13 @@ export default {
     },
   },
   computed: {
-    computedClass () {
+    computedClass() {
       return {
         'app-sidebar-link-group--minimized': this.minimized,
         'app-sidebar-link-group--isActive': this.isActive,
       }
     },
-    computedLinkStyles () {
+    computedLinkStyles() {
       if (this.isHovered || this.isActive) {
         return {
           color: this.colorText,
@@ -182,7 +145,7 @@ export default {
 
       return {}
     },
-    computedIconStyles () {
+    computedIconStyles() {
       if (this.isHovered || this.isActive) {
         return {
           color: this.colorText,
@@ -192,7 +155,7 @@ export default {
       return 'white'
     },
 
-    computedSubmenuColor () {
+    computedSubmenuColor() {
       return {
         backgroundColor: this.contextConfig.invertedColor ? 'white' : this.$themes[this.color],
       }
@@ -203,7 +166,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .app-sidebar-link-group {
   flex-direction: column;
   position: relative;

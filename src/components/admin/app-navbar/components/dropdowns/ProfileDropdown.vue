@@ -1,20 +1,8 @@
 <template>
-  <va-dropdown
-    class="profile-dropdown"
-    v-model="isShown"
-    boundary-body
-    offset="-10, 16px"
-  >
-    <span
-      class="profile-dropdown__anchor"
-      slot="anchor"
-      :style="{ color: this.colorText }"
-    >
+  <va-dropdown class="profile-dropdown" v-model="isShown" boundary-body offset="-10, 16px">
+    <span class="profile-dropdown__anchor" slot="anchor" :style="{ color: this.colorText }">
       <slot />
-      <va-icon
-        class="pa-1"
-        :name="`fa ${isShown ? 'fa-angle-up' : 'fa-angle-down'}`"
-      />
+      <va-icon class="pa-1" :name="`fa ${isShown ? 'fa-angle-up' : 'fa-angle-down'}`" />
     </span>
     <b-list-group v-if="show">
       <b-list-group-item>
@@ -29,10 +17,10 @@
       </b-list-group-item>
     </b-list-group>
     <b-list-group-item>
-        <span v-on:click="changePassword">
-          {{ 'Change Password' }}
-        </span>
-      </b-list-group-item>
+      <span v-on:click="changePassword">
+        {{ 'Change Password' }}
+      </span>
+    </b-list-group-item>
     </b-list-group>
   </va-dropdown>
 </template>
@@ -50,11 +38,11 @@ export default {
       colorText: this.$store.getters.paletteText,
     };
   },
-  mounted(){
-    Vue.config.refreshIntervalId = setInterval(() => {
-      this.getUserLoginStatus();
-    }, 30000);
-    console.log('Vue.config.refreshIntervalId =', Vue.config.refreshIntervalId);
+  mounted() {
+    // Vue.config.refreshIntervalId = setInterval(() => {
+    //   this.getUserLoginStatus();
+    // }, 30000);
+    // console.log('Vue.config.refreshIntervalId =', Vue.config.refreshIntervalId);
   },
 
   watch: {
@@ -68,8 +56,8 @@ export default {
     "$store.getters.paletteText": function () {
       this.colorText = this.$store.getters.paletteText;
     },
-    userdata: function(e){
-     this.userdata = JSON.parse(localStorage.getItem("user"));
+    userdata: function (e) {
+      this.userdata = JSON.parse(localStorage.getItem("user"));
     }
   },
 
@@ -82,41 +70,40 @@ export default {
       this.$router.push({ name: "profile" });
       // alert('profile page not found :/');
     },
-    getUserLoginStatus: async function() {
-      let userid=this.userdata.user_id;
-      let usertype=this.userdata.user_type;
-       console.log("Login Data FIMM=",this.userdata.user_type);
-      if(usertype != 'CONSULTANT'){
-        const response = await servicesModule0.getUserLoginStatus(userid,usertype);
-        console.log("Login Status=",response);
-        if(response.ISLOGIN == 0)
-        {
-          clearInterval( Vue.config.refreshIntervalId );
+    getUserLoginStatus: async function () {
+      let userid = this.userdata.user_id;
+      let usertype = this.userdata.user_type;
+      console.log("Login Data FIMM=", this.userdata.user_type);
+      if (usertype != 'CONSULTANT') {
+        const response = await servicesModule0.getUserLoginStatus(userid, usertype);
+        console.log("Login Status=", response);
+        if (response.ISLOGIN == 0) {
+          clearInterval(Vue.config.refreshIntervalId);
           localStorage.clear();
           this.$router.push({ name: 'default' });
-           //location.reload();
-        //location.href = 'http://localhost:8080/';
+          //location.reload();
+          //location.href = 'http://localhost:8080/';
         }
       }
     },
-    changePassword(){
+    changePassword() {
       this.$router.push("/fimm/change-password");
     },
     async logout() {
-       let userid=this.userdata.user_id;
-       let usertype=this.userdata.user_type;
-       const response = await servicesModule0.logout(userid,usertype); // logout first to clear cache
+      let userid = this.userdata.user_id;
+      let usertype = this.userdata.user_type;
+      const response = await servicesModule0.logout(userid, usertype); // logout first to clear cache
       //console.log("Return response=",response);
-     //if(response){
-        clearInterval( Vue.config.refreshIntervalId );
-        //Clean all cookie except color
-        // Object.keys(localStorage).forEach((key) => {
-        //   if (!key.includes('user_colour')) delete localStorage[key];
-        // });
-        localStorage.clear();
-        this.$router.push({ name: 'default' });
-       //location.reload();
-    // }
+      //if(response){
+      clearInterval(Vue.config.refreshIntervalId);
+      //Clean all cookie except color
+      // Object.keys(localStorage).forEach((key) => {
+      //   if (!key.includes('user_colour')) delete localStorage[key];
+      // });
+      localStorage.clear();
+      this.$router.push({ name: 'default' });
+      //location.reload();
+      // }
     }
   },
 };
